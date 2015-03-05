@@ -1,6 +1,6 @@
 # Ambrosio
 
-A bot written in Go. Inspired by Github's Hubot and created to get to know Go better.
+A bot written in Go. Inspired by Github's [Hubot](https://hubot.github.com) and created to get to know Go better.
 
 ### Version
 0.0.1
@@ -27,6 +27,7 @@ func main() {
 #### Interaction
 ```
 localhost:3000/ask?action="<string>"
+
 ```
 License
 ----
