@@ -22,7 +22,7 @@ type Ambrosio struct {
 
 type Behaviour struct {
     Pattern string
-    Handler func([]string) (string, bool)
+    Handler func([]string) (string, error)
 }
 
 type Handler func(http.ResponseWriter, *http.Request)
@@ -48,7 +48,7 @@ func (a Ambrosio) Listen(port int) {
 	a.router.HandleFunc("/ask", func(w http.ResponseWriter, req *http.Request) {
         var handledOnce = false
 		var actionResult string
-		var actionError bool
+		var actionError error
         action := req.FormValue("action")
 
         for _, b := range a.Behaviours {
@@ -64,7 +64,7 @@ func (a Ambrosio) Listen(port int) {
         }
         if(!handledOnce) {
             fmt.Fprintf(w, "Unkown command")
-        } else if(actionError == false){
+        } else if(actionError == nil){
 			fmt.Fprintf(w, actionResult)
 		} else {
 			fmt.Fprintf(w, actionResult)
