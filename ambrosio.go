@@ -78,6 +78,6 @@ func (a Ambrosio) Listen(port int) {
 	n.Run(fmt.Sprintf(":%d", port))
 }
 
-func (a *Ambrosio) NewBehaviour(b []Behaviour) {
+func (a *Ambrosio) Teach(b []Behaviour) {
 	a.Behaviours = append(a.Behaviours, b...)
 }
